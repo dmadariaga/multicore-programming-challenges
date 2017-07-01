@@ -131,11 +131,11 @@ int main(int argc, char* argv[]) {
   printf("threads: %d, elapsed time: %lf\n", __cilkrts_get_nworkers(), t);
 
   /* Print histomgrams */
-  
+  /*
   for (uint i = 0; i<256;i++){
     printf("%d) R:%d G:%d B:%d\n", i, histR[i], histG[i], histB[i]);
   }
-  
+  */  
   
   return EXIT_SUCCESS;
 }
