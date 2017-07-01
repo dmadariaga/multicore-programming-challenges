@@ -96,11 +96,12 @@ void parallel_quicksort( int* first, int* last ) {
     }
     // Implicit cilk_sync when function returns
 }
-int *generate_array(int n) {
+int *generate_array(int n, int alphabet) {
+  srand(256);
   int *x = (int *)malloc(n*sizeof(int));
   
   for (int i = 0; i < n; i++)
-    x[i] = rand();
+    x[i] = rand() % alphabet;
 
   return x;
 }
@@ -114,13 +115,14 @@ void print_array(int *x, int n) {
 
 int main(int argc, char* argv[]) {
 
-  if(argc < 2) {
-    fprintf(stderr, "Usage: %s <number of elements>\n", argv[0]);
+  if(argc != 3) {
+    fprintf(stderr, "Usage: %s <number of elements> <alphabet size>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
   int n = atoi(argv[1]);
-  int *x = generate_array(n);
+  int alphabet = atoi(argv[2]);
+  int *x = generate_array(n, alphabet);
   int *buff = (int *)malloc(n*sizeof(int));
   
   struct timespec stime, etime;
@@ -140,7 +142,8 @@ int main(int argc, char* argv[]) {
   
   t = (etime.tv_sec - stime.tv_sec) + (etime.tv_nsec - stime.tv_nsec) / 1000000000.0;
   
-  printf("threads: %d, elapsed time: %lf\n", __cilkrts_get_nworkers(), t);
+  //elapsed time
+  printf("%lf\n", t);
   
   return EXIT_SUCCESS;
 }
