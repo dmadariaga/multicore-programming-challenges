@@ -32,9 +32,9 @@ static void radix_sort(int *from, int *to, unsigned bit) {
   radix_sort(ll, to, bit);
 }
  
-uint *generate_array(int n, int alphabet) {
+int *generate_array(int n, int alphabet) {
   srand(256);
-  uint *x = (uint *)malloc(n*sizeof(uint));
+  int *x = (int *)malloc(n*sizeof(int));
   
   for (int i = 0; i < n; i++)
     x[i] = rand() % alphabet;
@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
 
   int n = atoi(argv[1]);
   int alphabet = atoi(argv[2]);
-  uint *x = generate_array(n, alphabet);
+  int *x = generate_array(n, alphabet);
   
   struct timespec stime, etime;
   double t;
@@ -75,7 +75,9 @@ int main(int argc, char* argv[]) {
   }
   
   t = (etime.tv_sec - stime.tv_sec) + (etime.tv_nsec - stime.tv_nsec) / 1000000000.0;
-  printf("threads: %d, elapsed time: %lf\n", __cilkrts_get_nworkers(), t);
+
+  //elapsed time
+  printf("%lf\n", t););
   
   return EXIT_SUCCESS;
 }
