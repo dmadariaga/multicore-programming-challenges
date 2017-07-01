@@ -5,7 +5,7 @@ outfile=results$(date +"%Y-%m-%d-%H:%M:%S").data
 echo "threads,time,image_size,cache-misses" >> ${outfile}
 
 iterations=3
-for IMAGE_SIZE in 1024 # Reference size
+for IMAGE_SIZE in 2048 4096 8192 # Reference size
 do
     for (( i=0; i<${iterations}; i++)) # repetitions
     do
