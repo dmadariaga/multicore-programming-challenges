@@ -13,7 +13,7 @@ do
         do
 		    echo -n ${j}, >> ${outfile}
 		    CILK_NWORKERS=${j} perf stat -o perf.tmp -x, -e cache-misses \
-      		    ./histogram_par ${IMAGE_SIZE} >> ${outfile}
+      		    ./histogram_par images/${IMAGE_SIZE}.ppm >> ${outfile}
 		    cut -d, -f1 perf.tmp | sed '/#/d' | sed '/^$/d' \
                         | paste -s | sed 's/\s\+/,/g' >> ${outfile}
 		    echo -e '$-1s/\\n/,/\nx' | ex ${outfile}
