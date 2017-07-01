@@ -1,4 +1,4 @@
-// Compile: gcc -std=gnu99 -o histogram histogram.c -fcilkplus -lcilkrts
+// Compile: gcc -std=gnu99 -o histogram_par histogram_par.c -fcilkplus -lcilkrts
 
 #include <stdio.h>
 #include <stdlib.h>
