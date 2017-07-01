@@ -1,5 +1,3 @@
-CFLAGS= -g -fcilkplus -lcilkrts -std=c99 -lrt
-
 all: histogram_par random_rgb_image
 
 histogram_par: 

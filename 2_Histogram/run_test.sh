@@ -9,7 +9,7 @@ for IMAGE_SIZE in 2048 4096 8192 # Reference size
 do
     for (( i=0; i<${iterations}; i++)) # repetitions
     do
-        for j in 1 2 4 6 8 10 12 # iterate over cores
+        for j in 1 2 3 4 5 6 7 8 9 10 11 12 # iterate over cores
         do
 		    echo -n ${j}, >> ${outfile}
 		    CILK_NWORKERS=${j} perf stat -o perf.tmp -x, -e cache-misses \
