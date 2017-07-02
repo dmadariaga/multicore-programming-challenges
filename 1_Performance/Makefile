@@ -1,4 +1,4 @@
-all: genchars pqs pps psm get_time
+all: genchars pqs ps sm get_time
 
 genchars: 
 	gcc -std=gnu99 -o genchars generate_random_chars.c
