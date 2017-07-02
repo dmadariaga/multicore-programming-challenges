@@ -122,7 +122,7 @@ int main(int argc, char* argv[]) {
   int n = atoi(argv[1]);
   int *x = generate_array(n);
   int *buff = (int *)malloc(n*sizeof(int));
-  
+  /*
   struct timespec stime, etime;
   double t;
   
@@ -130,9 +130,11 @@ int main(int argc, char* argv[]) {
     fprintf(stderr, "clock_gettime failed");
     exit(-1);
   }
+  */
 
   parallel_quicksort( x, x+n );
 
+  /*
   if (clock_gettime(CLOCK_THREAD_CPUTIME_ID , &etime)) {
     fprintf(stderr, "clock_gettime failed");
     exit(-1);
@@ -141,6 +143,6 @@ int main(int argc, char* argv[]) {
   t = (etime.tv_sec - stime.tv_sec) + (etime.tv_nsec - stime.tv_nsec) / 1000000000.0;
   
   printf("threads: %d, elapsed time: %lf\n", __cilkrts_get_nworkers(), t);
-  
+  */
   return EXIT_SUCCESS;
 }

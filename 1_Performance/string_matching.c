@@ -88,15 +88,18 @@ int main(int argc, char* argv[]) {
   char* pattern = argv[2];
   uint m = strlen(pattern);
   
+  /*
   if (clock_gettime(CLOCK_THREAD_CPUTIME_ID , &stime)) {
     fprintf(stderr, "clock_gettime failed");
     exit(-1);
   }
+  */
 
   CILK_C_REGISTER_REDUCER(num_occs);
   int occ = string_matching(text, n, pattern, m);
   CILK_C_UNREGISTER_REDUCER(num_occs);
   
+  /*
   if (clock_gettime(CLOCK_THREAD_CPUTIME_ID , &etime)) {
     fprintf(stderr, "clock_gettime failed");
     exit(-1);
@@ -106,6 +109,6 @@ int main(int argc, char* argv[]) {
   
   printf("%s,%d,%lf\n", argv[0], __cilkrts_get_nworkers(), t);
   fprintf(stderr, "%d ocurrences\n", occ);
-  
+  */
   return EXIT_SUCCESS;
 }
