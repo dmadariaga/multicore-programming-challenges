@@ -77,7 +77,7 @@ int main(int argc, char* argv[]) {
   t = (etime.tv_sec - stime.tv_sec) + (etime.tv_nsec - stime.tv_nsec) / 1000000000.0;
 
   //elapsed time
-  printf("%lf\n", t););
+  printf("%lf\n", t);
   
   return EXIT_SUCCESS;
 }

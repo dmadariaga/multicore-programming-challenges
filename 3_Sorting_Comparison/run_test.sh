@@ -6,7 +6,7 @@ echo "algorithm,threads,n,alphabet,time,cache-misses" >> ${outfile}
 iterations=3
 for N in 10000 100000 1000000 10000000 # Reference size
 do
-    for alphabet in 256 2046 32768 1048576 2147483647 # Reference size
+    for alphabet in 256 2046 32768 1048576 # Reference size
     do
         for alg in pqs pms pcs prs # algorithms
         do
