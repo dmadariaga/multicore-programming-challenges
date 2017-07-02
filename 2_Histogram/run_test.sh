@@ -2,7 +2,7 @@
 
 outfile=results$(date +"%Y-%m-%d-%H:%M:%S").data
 
-echo "threads,time,image_size,cache-misses" >> ${outfile}
+echo "threads,image_size,time,cache-misses" >> ${outfile}
 
 iterations=3
 for IMAGE_SIZE in 2048 4096 8192 # Reference size
@@ -11,7 +11,7 @@ do
     do
         for j in 1 2 3 4 5 6 7 8 9 10 11 12 # iterate over cores
         do
-		    echo -n ${j}, >> ${outfile}
+		    echo -n ${j},${IMAGE_SIZE}, >> ${outfile}
 		    CILK_NWORKERS=${j} perf stat -o perf.tmp -x, -e cache-misses \
       		    ./histogram_par images/${IMAGE_SIZE}.ppm >> ${outfile}
 		    cut -d, -f1 perf.tmp | sed '/#/d' | sed '/^$/d' \
