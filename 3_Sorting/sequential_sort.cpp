@@ -17,24 +17,26 @@
  *
  */
 
-int *generate_array(int n) {
+int *generate_array(int n, int alphabet) {
+  srand(256);
   int *x = (int *)malloc(n*sizeof(int));
   
   for (int i = 0; i < n; i++)
-    x[i] = rand();
+    x[i] = rand() % alphabet;
 
   return x;
 }
 
 int main(int argc, char* argv[]) {
 
-  if(argc < 2) {
-    fprintf(stderr, "Usage: %s <number of elements>\n", argv[0]);
+  if(argc != 3) {
+    fprintf(stderr, "Usage: %s <number of elements> <alphabet size>\n", argv[0]);
     exit(EXIT_FAILURE);
   }
 
   int n = atoi(argv[1]);
-  int *x = generate_array(n);
+  int alphabet = atoi(argv[2]);
+  int *x = generate_array(n, alphabet);
   
   struct timespec stime, etime;
   double t;
