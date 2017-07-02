@@ -26,4 +26,4 @@ Where:
 - ```time```: Execution time of the test
 - ```cache-misses```: Number of cache-misses during the test (measured with perf)
 
-The results used in the report are available [here](https://github.com/dmadariaga/multicore-programming-challenges/new/master/2_Histogram/results2017-07-01-12:40:44.data)
+The results used in the report are available [here](https://github.com/dmadariaga/multicore-programming-challenges/blob/master/2_Histogram/results2017-07-01-12:40:44.data)
