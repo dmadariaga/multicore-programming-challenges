@@ -5,7 +5,7 @@ outfile=results$(date +"%Y-%m-%d-%H:%M:%S").data
 echo "exp,stime,etime,cache-misses" >> ${outfile}
 
 iterations=3
-for exp in test1 # Reference size
+for exp in test1 test2 test3 test4 test5 # Reference size
 do
     for (( i=0; i<${iterations}; i++)) # repetitions
     do
